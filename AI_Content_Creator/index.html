@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatorAI - AI Carousel Studio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+            <span>Creator<span class="purple">AI</span></span>
+        </div>
+
+        <p class="menu-label">WORKSPACE</p>
+        <nav>
+            <a class="nav-link active" href="#dashboard">▦ <span>Dashboard</span></a>
+            <a class="nav-link" href="#creator">✧ <span>Create Carousel</span></a>
+            <a class="nav-link" href="#projects">▤ <span>My Projects</span></a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="upgrade-card">
+                <div class="upgrade-icon">✦</div>
+                <h3>Create without limits</h3>
+                <p>Turn your ideas into engaging content.</p>
+                <button onclick="showToast('You are using the demo workspace!')">Explore Studio →</button>
+            </div>
+            <div class="profile">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Creator Account</strong>
+                    <small>Free Workspace</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">YOUR CREATIVE WORKSPACE</p>
+                <h1>Welcome back, Creator! <span>✦</span></h1>
+                <p class="subtitle">Create beautiful social media content with AI.</p>
+            </div>
+            <button class="primary-btn" onclick="document.getElementById('creator').scrollIntoView({behavior:'smooth'})">
+                + Create New Carousel
+            </button>
+        </header>
+
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-top"><span>Total Projects</span><span class="stat-icon purple-bg">▤</span></div>
+                <h2 id="projectCount">0</h2>
+                <small>Your created projects</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top"><span>Slides Created</span><span class="stat-icon blue-bg">▦</span></div>
+                <h2 id="slideCount">0</h2>
+                <small>Total generated slides</small>
+            </div>
+            <div class="stat-card">
+                <div class="stat-top"><span>Workspace</span><span class="stat-icon green-bg">✧</span></div>
+                <h2>Active</h2>
+                <small>Ready to create content</small>
+            </div>
+        </section>
+
+        <section class="creator-section" id="creator">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">AI CONTENT GENERATOR</p>
+                    <h2>Create your next carousel</h2>
+                    <p class="subtitle">Enter your idea and generate a carousel preview.</p>
+                </div>
+                <span class="ai-badge">✦ AI POWERED</span>
+            </div>
+
+            <div class="creator-layout">
+                <div class="form-card">
+                    <label for="topic">What do you want to create?</label>
+                    <textarea id="topic" placeholder="Example: 5 ways AI is changing education..."></textarea>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="audience">Target Audience</label>
+                            <select id="audience">
+                                <option>Students</option>
+                                <option>Professionals</option>
+                                <option>Business Owners</option>
+                                <option>Content Creators</option>
+                                <option>General Audience</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="tone">Content Tone</label>
+                            <select id="tone">
+                                <option>Professional</option>
+                                <option>Friendly</option>
+                                <option>Educational</option>
+                                <option>Creative</option>
+                                <option>Motivational</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="slides">Number of Slides</label>
+                    <select id="slides">
+                        <option value="5">5 Slides</option>
+                        <option value="6">6 Slides</option>
+                        <option value="7">7 Slides</option>
+                        <option value="8">8 Slides</option>
+                        <option value="10">10 Slides</option>
+                    </select>
+
+                    <button class="generate-btn" id="generateBtn" onclick="generateCarousel()">
+                        ✦ Generate Carousel
+                    </button>
+                    <p class="helper-text">Create a quick browser preview of your content idea.</p>
+                </div>
+
+                <div class="tips-card">
+                    <div class="tips-icon">✧</div>
+                    <h3>Make content that connects</h3>
+                    <p>Great carousels start with a clear idea. Keep your topic focused and your audience in mind.</p>
+                    <div class="tip-item">✓ Clear and engaging headlines</div>
+                    <div class="tip-item">✓ Easy-to-understand content</div>
+                    <div class="tip-item">✓ Strong closing message</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview-section" id="projects">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR CONTENT</p>
+                    <h2>Carousel Preview</h2>
+                    <p class="subtitle">Your generated browser previews will appear here.</p>
+                </div>
+            </div>
+            <div id="previewGrid" class="preview-grid">
+                <div class="empty-state">
+                    <div>✧</div>
+                    <h3>Your creative journey starts here</h3>
+                    <p>Enter a topic above to generate your first carousel preview.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>© 2026 CreatorAI · AI Content Creator Studio</footer>
+    </main>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="js/script.js"></script>
+</body>
+</html>

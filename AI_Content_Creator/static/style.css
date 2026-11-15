@@ -1,0 +1,126 @@
+﻿:root {
+    --creator-primary: #6755d9;
+    --creator-primary-dark: #5140bd;
+    --creator-background: #f6f7fb;
+    --creator-surface: #ffffff;
+    --creator-text: #202238;
+    --creator-muted: #777b91;
+    --creator-border: #e7e8ef;
+    --creator-radius: 14px;
+}
+
+.static-creator {
+    color: var(--creator-text);
+    background: var(--creator-background);
+    font-family: Inter, Arial, sans-serif;
+}
+
+.static-creator *,
+.static-creator *::before,
+.static-creator *::after {
+    box-sizing: border-box;
+}
+
+.static-creator button,
+.static-creator input,
+.static-creator textarea,
+.static-creator select {
+    font: inherit;
+}
+
+.static-creator button {
+    cursor: pointer;
+}
+
+.static-creator .creator-card {
+    background: var(--creator-surface);
+    border: 1px solid var(--creator-border);
+    border-radius: var(--creator-radius);
+    padding: 22px;
+    box-shadow: 0 8px 28px rgba(35, 35, 70, .07);
+}
+
+.static-creator .creator-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--creator-primary);
+    color: white;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.static-creator .creator-button:hover {
+    background: var(--creator-primary-dark);
+    transform: translateY(-1px);
+}
+
+.static-creator .creator-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.static-creator .creator-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--creator-border);
+    border-radius: 10px;
+    outline: none;
+    background: white;
+    color: var(--creator-text);
+}
+
+.static-creator .creator-input:focus {
+    border-color: var(--creator-primary);
+    box-shadow: 0 0 0 3px rgba(103, 85, 217, .12);
+}
+
+.static-creator .creator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.static-creator .creator-muted {
+    color: var(--creator-muted);
+}
+
+.static-toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 99999;
+    max-width: calc(100vw - 48px);
+    padding: 14px 20px;
+    border-radius: 10px;
+    background: #25243a;
+    color: white;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: .25s ease;
+}
+
+.static-toast.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.static-toast.error {
+    background: #b42335;
+}
+
+@media (max-width: 600px) {
+    .static-creator .creator-card {
+        padding: 16px;
+    }
+
+    .static-toast {
+        right: 12px;
+        bottom: 12px;
+    }
+}
