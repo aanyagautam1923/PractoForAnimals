@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practo for Animals | Better Care for Every Paw</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#" class="logo">🐾 practo<span>for animals</span></a>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#providers">Find a Vet</a>
+        <a href="#about">About Us</a>
+    </nav>
+    <a href="#list-business" class="nav-btn">List Your Business ↗</a>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="tag">🐾 EVERY PAW DESERVES THE BEST CARE</span>
+        <h1>Because they are<br>family, <span>not just pets.</span></h1>
+        <p>Find trusted veterinarians, pet hospitals, boarding centres and animal care services near you.</p>
+
+        <div class="search-box">
+            <div>
+                <label>LOCATION</label>
+                <input type="text" id="location" placeholder="Enter your city">
+            </div>
+            <div>
+                <label>WHAT DO YOU NEED?</label>
+                <select id="service">
+                    <option value="all">All Services</option>
+                    <option value="vet">Veterinary Clinic</option>
+                    <option value="hospital">Animal Hospital</option>
+                    <option value="boarding">Pet Boarding</option>
+                    <option value="diagnostics">Diagnostics</option>
+                    <option value="ambulance">Ambulance</option>
+                    <option value="ngo">Animal NGO</option>
+                </select>
+            </div>
+            <button onclick="searchProviders()">Find Care →</button>
+        </div>
+
+        <div class="hero-stats">
+            <div><strong>6+</strong><small>Care Categories</small></div>
+            <div><strong>Easy</strong><small>Discovery</small></div>
+            <div><strong>24/7</strong><small>Emergency Support</small></div>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=900" alt="Happy dog">
+        <div class="image-note">♡ Care that feels like home</div>
+    </div>
+</section>
+
+<section class="services section" id="services">
+    <div class="section-heading">
+        <div>
+            <span class="tag">EXPLORE OUR SERVICES</span>
+            <h2>Everything your pet needs.</h2>
+            <p>Find the right care, all in one place.</p>
+        </div>
+    </div>
+
+    <div class="service-grid">
+        <button class="service-card" onclick="filterService('vet')">
+            <span>🩺</span><h3>Veterinary Clinics</h3><p>Find experienced vets</p>
+        </button>
+        <button class="service-card" onclick="filterService('hospital')">
+            <span>🏥</span><h3>Pet Hospitals</h3><p>Complete medical care</p>
+        </button>
+        <button class="service-card" onclick="filterService('boarding')">
+            <span>🏡</span><h3>Pet Boarding</h3><p>A home away from home</p>
+        </button>
+        <button class="service-card" onclick="filterService('diagnostics')">
+            <span>🔬</span><h3>Diagnostics</h3><p>Tests and health checks</p>
+        </button>
+        <button class="service-card" onclick="filterService('ambulance')">
+            <span>🚑</span><h3>Pet Ambulance</h3><p>Emergency transportation</p>
+        </button>
+        <button class="service-card" onclick="filterService('ngo')">
+            <span>🐕</span><h3>Animal NGOs</h3><p>Rescue and adoption</p>
+        </button>
+    </div>
+</section>
+
+<section class="providers section" id="providers">
+    <div class="section-heading">
+        <div>
+            <span class="tag">DISCOVER CARE PROVIDERS</span>
+            <h2>Find the right care nearby.</h2>
+            <p>Explore animal-care providers in our directory.</p>
+        </div>
+        <input class="filter-input" id="providerSearch" placeholder="Search providers..." oninput="renderProviders()">
+    </div>
+
+    <div class="filter-row">
+        <button class="filter active" onclick="filterService('all')">All</button>
+        <button class="filter" onclick="filterService('vet')">Clinics</button>
+        <button class="filter" onclick="filterService('hospital')">Hospitals</button>
+        <button class="filter" onclick="filterService('boarding')">Boarding</button>
+        <button class="filter" onclick="filterService('diagnostics')">Diagnostics</button>
+        <button class="filter" onclick="filterService('ngo')">NGOs</button>
+    </div>
+
+    <div class="provider-grid" id="providerGrid"></div>
+    <p class="empty-message" id="emptyMessage" hidden>No matching providers found. Try another search.</p>
+</section>
+
+<section class="emergency">
+    <div>
+        <span class="tag">WHEN EVERY SECOND MATTERS</span>
+        <h2>Your pet needs urgent care?</h2>
+        <p>Find emergency animal hospitals and ambulance services.</p>
+    </div>
+    <button onclick="filterService('ambulance')">Find Emergency Care →</button>
+</section>
+
+<section class="business section" id="list-business">
+    <div class="business-content">
+        <span class="tag">FOR ANIMAL CARE PROVIDERS</span>
+        <h2>Help more pets<br>find their way to you.</h2>
+        <p>Are you a veterinarian, hospital, boarding centre or animal welfare organisation? Join our discovery platform.</p>
+        <button class="primary-btn" onclick="openModal('business')">List Your Business →</button>
+    </div>
+    <div class="business-icon">🐕‍🦺</div>
+</section>
+
+<section class="correction section">
+    <div>
+        <span class="tag">HELP US IMPROVE</span>
+        <h2>Spotted something incorrect?</h2>
+        <p>Help us keep animal-care information accurate and useful.</p>
+    </div>
+    <button class="outline-btn" onclick="openModal('correction')">Submit a Correction ↗</button>
+</section>
+
+<footer id="about">
+    <div class="logo">🐾 practo<span>for animals</span></div>
+    <p>Making animal care easier to discover, one paw at a time.</p>
+    <div class="footer-bottom">© 2026 Practo for Animals. All rights reserved.</div>
+</footer>
+
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <button class="close" onclick="closeModal()">✕</button>
+        <h2 id="modalTitle">Get in touch</h2>
+        <p id="modalDescription">Share your details below.</p>
+        <form id="contactForm">
+            <input name="name" placeholder="Your name" required>
+            <input name="email" type="email" placeholder="Email address" required>
+            <input name="phone" placeholder="Phone number">
+            <textarea name="message" placeholder="Tell us more..." required></textarea>
+            <button class="primary-btn" type="submit">Submit Request →</button>
+        </form>
+        <p id="formMessage"></p>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
