@@ -1,0 +1,28 @@
+﻿# Python environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Local backup files
+*.before_*
+*.bak
+*.backup
+
+# Editor and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
